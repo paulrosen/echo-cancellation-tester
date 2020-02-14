@@ -4,6 +4,7 @@
     <explanation-section></explanation-section>
     <options-section></options-section>
     <recording-section></recording-section>
+    <code-example></code-example>
   </div>
 </template>
 
@@ -13,9 +14,11 @@
 import ExplanationSection from "../components/ExplanationSection";
 import RecordingSection from "../components/RecordingSection";
 import OptionsSection from "../components/OptionsSection";
+import CodeExample from "../components/CodeExample";
 export default {
   name: 'Home',
   components: {
+    CodeExample,
     OptionsSection,
     RecordingSection,
     ExplanationSection
