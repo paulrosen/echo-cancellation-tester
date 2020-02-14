@@ -29,7 +29,7 @@ L:1/4
 M:4/4
 Q:1/4=180
 K:F
-.[Acf] _a/=a c/d | .f z .a z | f f a a | f f a2 | c'/c'/c'/z/ _a/ =a |fz z2 |[F,,F,]4 |]
+.[Acf] _a/=a c/d | .f z .a z | f f a a | f f a2 | c'/c'/c'/z/ _a/ =a |fz z2 |[F,,F,]4 | z4 |]
 `,
 			};
 		},
