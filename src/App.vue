@@ -15,11 +15,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   background: #edf5f3;
   padding: 10px 40px;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #nav {

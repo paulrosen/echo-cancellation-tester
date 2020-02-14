@@ -19,11 +19,19 @@ export const recordAudio = () => {
 							const audioBlob = new Blob(audioChunks);
 							const audioUrl = URL.createObjectURL(audioBlob);
 							const audio = new Audio(audioUrl);
-							const play = () => {
+							const play = (onEnded) => {
+								if (onEnded) {
+									audio.addEventListener("ended", () => {
+										onEnded();
+									});
+								}
 								audio.play();
 							};
+							const pause = () => {
+								audio.pause();
+							};
 
-							resolve({audioBlob, audioUrl, play});
+							resolve({audioBlob, audioUrl, play, pause});
 						});
 
 						mediaRecorder.stop();

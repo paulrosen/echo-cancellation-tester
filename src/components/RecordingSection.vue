@@ -2,7 +2,8 @@
 	<section class="recording-section">
 		<div>
 			<button @click="record" v-if="!hasRecorded">Record</button>
-			<button @click="play" v-if="audio !== null">Play</button>
+			<button @click="play" v-if="audio !== null && !isPlaying">Play</button>
+			<button @click="pause" v-if="isPlaying">Pause</button>
 		</div>
 		<div>
 			<button @click="tryAgain" v-if="hasPlayed">Try Again</button>
@@ -20,6 +21,7 @@
 			return {
 				hasRecorded: false,
 				hasPlayed: false,
+				isPlaying: false,
 				audio: null,
 				abc: `X:1
 L:1/4
@@ -41,15 +43,22 @@ K:F
 					})
 				})
 			},
+			onEnded() {
+				this.hasPlayed = true;
+				this.isPlaying = false;
+			},
 			play() {
-				this.audio.play();
-				setTimeout(() => {
-					this.hasPlayed = true;
-				}, 8000);
+				this.isPlaying = true;
+				this.audio.play(this.onEnded);
+			},
+			pause() {
+				this.isPlaying = false;
+				this.audio.pause();
 			},
 			tryAgain() {
 				this.hasRecorded = false;
 				this.hasPlayed = false;
+				this.isPlaying = false;
 				this.audio = null;
 			},
 			synthEnded() {
