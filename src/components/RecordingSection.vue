@@ -14,6 +14,7 @@
 <script>
 	import abcjs from 'abcjs';
 	import {recordAudio} from '../audio/record';
+	import { mapGetters } from "vuex";
 
 	export default {
 		name: "recording-section",
@@ -33,9 +34,10 @@ K:F
 			};
 		},
 		methods: {
+			...mapGetters(['echoStyle', 'streamCancellation']),
 			record() {
 				this.hasRecorded = true;
-				recordAudio().then(response => {
+				recordAudio(this.echoStyle(), this.streamCancellation()).then(response => {
 					this.recorder = response;
 					this.loadSynthBuffer().then(response => {
 						this.recorder.start();
@@ -53,6 +55,7 @@ K:F
 			},
 			pause() {
 				this.isPlaying = false;
+				this.hasPlayed = true;
 				this.audio.pause();
 			},
 			tryAgain() {

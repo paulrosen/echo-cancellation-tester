@@ -2,6 +2,7 @@
   <div class="home">
     <h1>Echo Cancellation Tester</h1>
     <explanation-section></explanation-section>
+    <options-section></options-section>
     <recording-section></recording-section>
   </div>
 </template>
@@ -11,9 +12,11 @@
 
 import ExplanationSection from "../components/ExplanationSection";
 import RecordingSection from "../components/RecordingSection";
+import OptionsSection from "../components/OptionsSection";
 export default {
   name: 'Home',
   components: {
+    OptionsSection,
     RecordingSection,
     ExplanationSection
   }
