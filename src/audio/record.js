@@ -4,7 +4,8 @@ const AC = window.AudioContext || window.webkitAudioContext;
 let ctx;
 
 export const recordAudio = (echoStyle, streamCancellation) => {
-	ctx = new AC();
+	if (!ctx)
+		ctx = new AC();
 
 	function initialize(stream) {
 		let MR = window.MediaRecorder;
