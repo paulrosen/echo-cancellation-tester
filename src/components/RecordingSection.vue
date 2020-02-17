@@ -93,6 +93,7 @@ K:F
 		padding: 10px 30px;
 		border: 1px solid #3B305D;
 		color: #3B305D;
+		background: #ffffff;
 		font-size: 15px;
 		font-weight: 600;
 		border-radius: 6px;
