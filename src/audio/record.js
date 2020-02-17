@@ -1,18 +1,8 @@
-export const recordAudio = (echoStyle, streamCancellation) => {
-	let constraints;
-	switch (echoStyle) {
-		case "None":
-			constraints = { audio: true };
-			break;
-		case "False":
-			constraints = { audio: { echoCancellation: false } };
-			break;
-		case "Ideal":
-			constraints = { audio: { echoCancellation: { ideal: false } } };
-			break;
-	}
+import {initGum} from "./init-gum";
 
-	function initialize(stream, resolve) {
+export const recordAudio = (echoStyle, streamCancellation) => {
+
+	function initialize(stream) {
 		const mediaRecorder = new MediaRecorder(stream);
 		const audioChunks = [];
 
@@ -49,20 +39,10 @@ export const recordAudio = (echoStyle, streamCancellation) => {
 				mediaRecorder.stop();
 			});
 		};
-		return resolve({start, stop});
+		return Promise.resolve({start, stop});
 	}
 
-	return new Promise(resolve => {
-		return navigator.mediaDevices.getUserMedia(constraints)
-			.then(stream => {
-				if (streamCancellation) {
-					return stream.getAudioTracks()[0].applyConstraints({echoCancellation: false}).then(() => {
-						return initialize(stream, resolve);
-					});
-				} else
-					return initialize(stream, resolve);
-			}).catch(error => {
-				console.log("Initialization error:", error);
-			});
+	return initGum(echoStyle, streamCancellation).then(stream => {
+		return initialize(stream);
 	});
 };
