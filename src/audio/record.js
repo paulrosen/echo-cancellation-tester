@@ -1,6 +1,10 @@
 import {initGum} from "./init-gum";
 
+const AC = window.AudioContext || window.webkitAudioContext;
+let ctx;
+
 export const recordAudio = (echoStyle, streamCancellation) => {
+	ctx = new AC();
 
 	function initialize(stream) {
 		let MR = window.MediaRecorder;
@@ -25,8 +29,7 @@ export const recordAudio = (echoStyle, streamCancellation) => {
 					const audioBlob = new Blob(audioChunks);
 					let directSource;
 					const play = (onEnded) => {
-						const AC = window.AudioContext || window.webkitAudioContext;
-						directSource = playBack(new AC(), audioBlob, onEnded);
+						directSource = playBack(ctx, audioBlob, onEnded);
 					};
 					const stop = () => {
 						directSource.stop();

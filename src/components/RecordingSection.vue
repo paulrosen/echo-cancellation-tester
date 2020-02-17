@@ -41,7 +41,7 @@ K:F
 				this.hasRecorded = true;
 				recordAudio(this.echoStyle(), this.streamCancellation()).then(response => {
 					this.recorder = response;
-					this.loadSynthBuffer().then(response => {
+					return this.loadSynthBuffer().then(response => {
 						this.recorder.start();
 						response.midiBuffer.start();
 					})
