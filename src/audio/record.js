@@ -3,7 +3,12 @@ import {initGum} from "./init-gum";
 export const recordAudio = (echoStyle, streamCancellation) => {
 
 	function initialize(stream) {
-		const mediaRecorder = new MediaRecorder(stream);
+		let MR = window.MediaRecorder;
+		if (!MR) {
+			// For edge and safari
+			MR = require("./polyfill-media-recorder").MediaRecorder;
+		}
+		const mediaRecorder = new MR(stream);
 		const audioChunks = [];
 
 		mediaRecorder.addEventListener("dataavailable", event => {
