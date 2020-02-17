@@ -25,8 +25,10 @@ export function MediaRecorder(stream) {
 			this.onStop = callback;
 	};
 	this.start = () => {
-		if (!this.ctx)
-			this.ctx = new AudioContext();
+		if (!this.ctx) {
+			const AC = window.AudioContext || window.webkitAudioContext;
+			this.ctx = new AC();
+		}
 		this.buffer = [];
 		this.totalLength = 0;
 

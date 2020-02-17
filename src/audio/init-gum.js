@@ -23,7 +23,5 @@ export const initGum = (echoStyle, streamCancellation) => {
 			});
 		} else
 			return Promise.resolve(stream);
-	}).catch(error => {
-		console.log("Initialization error:", error);
 	});
 };

@@ -1,5 +1,6 @@
 <template>
 	<section class="recording-section">
+		<div class="error" v-if="error">{{error}}</div>
 		<div>
 			<button @click="record" v-if="!hasRecorded">Record</button>
 			<button @click="play" v-if="audio !== null && !isPlaying">Play</button>
@@ -20,6 +21,7 @@
 		name: "recording-section",
 		data() {
 			return {
+				error: "",
 				hasRecorded: false,
 				hasPlayed: false,
 				isPlaying: false,
@@ -43,7 +45,10 @@ K:F
 						this.recorder.start();
 						response.midiBuffer.start();
 					})
-				})
+				}).catch(error => {
+					console.log(error)
+					this.error = error;
+				});
 			},
 			onEnded() {
 				this.hasPlayed = true;
@@ -103,6 +108,12 @@ K:F
 	}
 	button:hover {
 		background: #fbd2fb;
+	}
+	.error {
+		border: 2px solid red;
+		color: red;
+		padding: 20px;
+		margin-bottom: 20px;
 	}
 
 </style>
