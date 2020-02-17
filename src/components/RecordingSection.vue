@@ -4,7 +4,7 @@
 		<div>
 			<button @click="record" v-if="!hasRecorded">Record</button>
 			<button @click="play" v-if="audio !== null && !isPlaying">Play</button>
-			<button @click="pause" v-if="isPlaying">Pause</button>
+			<button @click="stop" v-if="isPlaying">Stop</button>
 		</div>
 		<div>
 			<button @click="tryAgain" v-if="hasPlayed">Try Again</button>
@@ -58,10 +58,10 @@ K:F
 				this.isPlaying = true;
 				this.audio.play(this.onEnded);
 			},
-			pause() {
+			stop() {
 				this.isPlaying = false;
 				this.hasPlayed = true;
-				this.audio.pause();
+				this.audio.stop();
 			},
 			tryAgain() {
 				this.hasRecorded = false;
