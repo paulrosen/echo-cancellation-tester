@@ -1,3 +1,5 @@
+// This code is adapted from https://medium.com/@bryanjenningz/how-to-record-and-play-audio-in-javascript-faa1b2b3e49b
+
 import {initGum} from "./init-gum";
 
 const AC = window.AudioContext || window.webkitAudioContext;

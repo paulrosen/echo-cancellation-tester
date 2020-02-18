@@ -1,8 +1,10 @@
+// This code is adapted from https://github.com/mattdiamond/Recorderjs
+
 export const bufferToWav = (recBuffer, recLength, numChannels, sampleRate) => {
 	let buffer = mergeBuffers(recBuffer, recLength);
 	let dataview = encodeWAV(buffer, numChannels, sampleRate);
 	return new Blob([dataview], {type: "audio/wav"});
-}
+};
 
 function mergeBuffers(recBuffers, recLength) {
 	let result = new Float32Array(recLength);
