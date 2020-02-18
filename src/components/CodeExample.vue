@@ -22,6 +22,8 @@
 				switch(this.echoStyle()) {
 					case "None":
 						return "{ audio: true }";
+					case "True":
+						return "{ audio: { echoCancellation: true } }";
 					case "False":
 						return "{ audio: { echoCancellation: false } }";
 					case "Ideal":

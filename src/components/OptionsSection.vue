@@ -2,6 +2,7 @@
 	<section class="options-section">
 		<h2>Echo Cancellation Type:</h2>
 		<label><input type="radio" value="None" v-model="echoStyle">None</label>
+		<label><input type="radio" value="True" v-model="echoStyle">{ echoCancellation: true }</label>
 		<label><input type="radio" value="False" v-model="echoStyle">{ echoCancellation: false }</label>
 		<label><input type="radio" value="Ideal" v-model="echoStyle">{ echoCancellation: { ideal: false } }</label>
 		<br>

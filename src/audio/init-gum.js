@@ -4,6 +4,9 @@ export const initGum = (echoStyle, streamCancellation) => {
 		case "None":
 			constraints = { audio: true };
 			break;
+		case "True":
+			constraints = { audio: { echoCancellation: true } };
+			break;
 		case "False":
 			constraints = { audio: { echoCancellation: false } };
 			break;
