@@ -5,6 +5,7 @@
     <options-section></options-section>
     <recording-section></recording-section>
     <code-example></code-example>
+    <supported-constraints></supported-constraints>
   </div>
 </template>
 
@@ -15,9 +16,11 @@ import ExplanationSection from "../components/ExplanationSection";
 import RecordingSection from "../components/RecordingSection";
 import OptionsSection from "../components/OptionsSection";
 import CodeExample from "../components/CodeExample";
+import SupportedConstraints from "../components/SupportedConstraints";
 export default {
   name: 'Home',
   components: {
+    SupportedConstraints,
     CodeExample,
     OptionsSection,
     RecordingSection,
