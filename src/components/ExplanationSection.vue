@@ -6,6 +6,7 @@
 			<li>Accept the browser's recording permission notice.</li>
 			<li>You should hear a short tune play, then a "Play" button will appear.</li>
 			<li>Click "Play". If echo cancellation was successfully turned off, then you will hear the tune. If echo cancellation is still on, then you will probably hear drop outs in the recording when the notes where sounding.</li>
+			<li>Try a number of different combinations of options to see what makes a difference.</li>
 		</ol>
 	</section>
 </template>

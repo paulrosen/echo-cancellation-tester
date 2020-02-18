@@ -1,11 +1,16 @@
 <template>
   <div class="home">
-    <h1>Echo Cancellation Tester</h1>
-    <explanation-section></explanation-section>
-    <options-section></options-section>
-    <recording-section></recording-section>
-    <code-example></code-example>
-    <supported-constraints></supported-constraints>
+    <header>
+      <h1>Echo Cancellation Tester</h1>
+    </header>
+    <main>
+      <explanation-section></explanation-section>
+      <options-section></options-section>
+      <recording-section></recording-section>
+      <code-example></code-example>
+      <supported-constraints></supported-constraints>
+    </main>
+    <footer-section></footer-section>
   </div>
 </template>
 
@@ -17,9 +22,11 @@ import RecordingSection from "../components/RecordingSection";
 import OptionsSection from "../components/OptionsSection";
 import CodeExample from "../components/CodeExample";
 import SupportedConstraints from "../components/SupportedConstraints";
+import FooterSection from "../components/FooterSection";
 export default {
   name: 'Home',
   components: {
+    FooterSection,
     SupportedConstraints,
     CodeExample,
     OptionsSection,
@@ -28,3 +35,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  header {
+    background: #e6dede;
+    padding: 10px 40px;
+  }
+  h1 {
+    margin: 0;
+  }
+  main {
+    padding: 10px 40px;
+  }
+</style>

@@ -5,6 +5,12 @@
 </template>
 
 <style lang="scss">
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
   body {
     margin: 0;
     padding: 0;
@@ -15,10 +21,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   background: #edf5f3;
-  padding: 10px 40px;
   min-height: 100vh;
 }
 
